@@ -1,0 +1,632 @@
+:root{
+    --primaer-farve:#FFFDEC;
+    --sekundaer-farve:#FFE2E2;
+    --traetier-farve:#FF9898;
+    --header-farve:#86A788;
+    --tekst-farve:#4F7451;
+
+    --border-radius:66px;
+
+    --gap-1:30px;
+    --gap-2:60px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+     font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url(../img/background.svg);
+    background-size: cover;
+    background-repeat: repeat;
+    color: var(--tekst-farve);
+    margin-left: auto;
+margin-right: auto;
+}
+/* Loader overlay */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--tekst-farve);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+
+/* Dot loader */
+.dot-loader {
+  display: flex;
+  gap: 12px;
+}
+
+.dot-loader span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, var(--traetier-farve), var(--sekundaer-farve));
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+.dot-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+  background: linear-gradient(45deg, var(--traetier-farve), var(--sekundaer-farve));
+}
+
+.dot-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+  background: linear-gradient(45deg, var(--traetier-farve), var(--sekundaer-farve));
+}
+
+@keyframes pulse {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Fade-out transition */
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+
+.container{max-width: 1600px;
+margin-left: auto;
+margin-right: auto;}
+
+
+nav {
+  margin: 27px auto 0;
+  position: fixed;
+  bottom: var(--gap-2);        /* Keeps it a bit above the screen edge */
+  left: 50%;                   /* Move the left edge to the center */
+  transform: translateX(-50%); /* Pull it back by half its width */
+  z-index: 1000;
+  width: 750px;
+  height: 60px;
+  background-color: var(--header-farve);
+  opacity: 0.95;
+  border-radius: var(--border-radius);
+  font-size: 0;
+}
+
+nav a {
+  line-height: 60px;
+  height: 100%;
+  font-size: 17px;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--primaer-farve);
+  cursor: pointer;
+}
+nav .animation {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  transition: all .5s ease 0s;
+  border-radius: var(--border-radius);
+}
+nav .nav-link {
+  width: 150px;
+}
+
+nav .start-fritid, 
+nav .fritid:hover ~ .animation {
+  width: 150px;
+  left: 0;
+  background-color: var(--traetier-farve);
+}
+
+nav .start-skole, 
+nav .skole:hover ~ .animation {
+  width: 150px;
+  left: 150px;
+  background-color: var(--tekst-farve);
+}
+
+nav .start-hjem, 
+nav .hjem:hover ~ .animation {
+  width: 150px;
+  left: 300px;
+  background-color: var(--traetier-farve);
+}
+
+nav .start-om, 
+nav .om:hover ~ .animation {
+  width: 150px;
+  left: 450px;
+  background-color: var(--tekst-farve);
+}
+
+nav .start-kontakt, 
+nav .kontakt:hover ~ .animation {
+  width: 150px;
+  left: 600px;
+  background-color: var(--traetier-farve);
+}
+
+nav .start-fritid , a:nth-child(1):hover~.animation {
+  width: 150px;
+  left: 0;
+  background-color: var(--traetier-farve);
+}
+nav .start-skole, a:nth-child(2):hover~.animation {
+  width: 150px;
+  left: 150px;
+  background-color: var(--tekst-farve);
+}
+nav .start-hjem , a:nth-child(3):hover~.animation {
+  width: 150px;
+  left: 300px;
+  background-color: var(--traetier-farve);
+}
+nav .start-om, a:nth-child(4):hover~.animation {
+  width: 150px;
+  left: 450px;
+  background-color: var(--tekst-farve);
+}
+nav .start-kontakt, a:nth-child(5):hover~.animation {
+  width: 150px;
+  left: 600px;
+  background-color: var(--traetier-farve);
+}
+
+
+.fejl-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  gap: var(--gap-1);
+}
+
+header{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+margin-top: 18vh;
+}
+
+.forside{margin-bottom: 19VH;}
+
+h1{
+    font-size: 110px;
+    font-weight: 800;
+    color: var(--header-farve);
+}
+
+
+h2{
+    font-size: 60px;
+    color: var(--traetier-farve);
+    font-weight: 800;
+}
+
+h3{font-size: 40px;
+font-weight: 800;
+color: var(--header-farve);}
+
+h4{font-size: 35px;
+font-weight: 800;}
+
+p{font-size: 1.2em;
+font-weight: 600;}
+
+.venstre{
+  display: flex;
+    color: var(--traetier-farve);
+    justify-content: end;
+    width: 100%;
+}
+
+.knap a{
+    text-decoration: none;
+    color: var(--primaer-farve);
+    background-color: var(--traetier-farve);
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+    font-weight: 800;
+    width: fit-content;
+    font-size: 1.3em;
+}
+
+.knap a:hover{
+    background-color: var(--header-farve);
+    transition: 0.5s ease-in-out;
+}
+
+@keyframes popIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.navn {
+  position: relative; /* container for absolute positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px; /* space between the h1's */
+      opacity: 0;
+    transform: scale(0.8);
+    animation: popIn 0.9s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+header h2{     opacity: 0;
+    transform: scale(0.8);
+    animation: popIn 0.6s ease-out forwards;
+    animation-delay: 0.3s;}
+
+.navn h1 {
+  margin: 0;
+  position: relative;
+  line-height: 0.8;
+  z-index: 0; /* put text above the image */
+}
+
+.overlay-img {
+  position: absolute;
+  top: 50%;               /* middle of container */
+  left: 50%;              /* center horizontally */
+  transform: translate(-50%, -50%); /* center exactly */
+  width: 80px;            /* adjust size */
+  height: auto;
+  z-index: 1;             /* behind the text */
+  pointer-events: none;   /* so clicks go through */
+}
+
+.hvem-er-jeg{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 50% 50%;
+    gap: var(--gap-1);
+    margin-left: var(--gap-1);
+    margin-right: var(--gap-1);
+    margin-top: var(--gap-2);
+;
+}
+
+.tekst-knap{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-1);
+    margin-right: var(--gap-2);
+}
+
+.bow-og-img{
+    display: flex;
+  justify-content: start;
+}
+
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+}
+
+.mig-img {
+  display: block;
+  width: 100%; /* or whatever size you need */
+  height: auto; 
+}
+
+.slojfe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px; /* adjust as needed */
+  rotate: 28deg; /* rotate the image */
+  height: auto;
+  transition:0.3s ease-in-out; /* smooth transition */
+}
+
+.slojfe:hover {
+  transform: rotate(-20deg); /* reset rotation on hover */
+}
+
+
+.wrapper {
+  margin-top: var(--gap-1);
+  margin-inline: auto;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  margin-left: var(--gap-2);
+  margin-right: var(--gap-2);
+}
+
+
+
+
+@keyframes scrollLeft {
+  to {
+    left: -500px;
+  }
+}
+
+@keyframes scrollRight {
+  to {
+    right: -500px;
+  }
+}
+
+.itemLeft,
+.itemRight {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  animation-timing-function: linear;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+}
+
+.itemLeft {
+  left: max(calc(500px * 8), 100%);
+  animation-name: scrollLeft;
+}
+
+.itemRight {
+  right: max(calc(500px * 8), calc(100% + 400px));
+  animation-name: scrollRight;
+}
+
+.item1 {
+  animation-delay: calc(60s / 8 * (8 - 1) * -1);
+}
+
+.item2 {
+  animation-delay: calc(60s / 8 * (8 - 2) * -1);
+}
+
+.item3 {
+  animation-delay: calc(60s / 8 * (8 - 3) * -1);
+}
+
+.item4 {
+  animation-delay: calc(60s / 8 * (8 - 4) * -1);
+}
+
+.item5 {
+  animation-delay: calc(60s / 8 * (8 - 5) * -1);
+}
+
+.item6 {
+  animation-delay: calc(60s / 8 * (8 - 6) * -1);
+}
+
+.item7 {
+  animation-delay: calc(60s / 8 * (8 - 7) * -1);
+}
+
+.item8 {
+  animation-delay: calc(60s / 8 * (8 - 8) * -1);
+}
+
+.skole-arbejde{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  margin-top: var(--gap-2);
+  margin-bottom: var(--gap-2);
+  margin-left: var(--gap-2);
+  margin-right: var(--gap-2);
+}
+
+.knapper{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.semester{
+  scale: 1.2;
+}
+
+
+
+
+.private-projekter{
+  margin-bottom: var(--gap-2);
+  margin-left: var(--gap-2);
+  margin-right: var(--gap-2);
+}
+
+
+
+
+.private-indhold{display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 45%;
+  justify-content: space-between;
+}
+
+.img-top{display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50% 50%;
+  gap: var(--gap-1);
+  margin-bottom: var(--gap-1);
+}
+
+.image-frame {
+  max-width: 40vh;           /* Change as needed */
+  height: 50vh;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+
+}
+
+.image-frame img {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.image-frame img.active {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+}
+
+button {
+ all: unset; 
+}
+
+.skole-arr{ 
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+  gap: var(--gap-2);
+  margin-bottom: var(--gap-2);
+} 
+   
+
+
+.skole-box{ 
+position: relative; /* needed for overlay positioning */ 
+padding-top: var(--gap-1); 
+border-radius: var(--border-radius);
+height: 40vh; 
+cursor: pointer;
+border: var(--sekundaer-farve) 14px solid;
+overflow: hidden; /* contain overlay */ 
+text-align: center;
+
+}
+       
+.skole-box::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0; 
+right: 0; 
+bottom: 0;
+background-color: transparent; /* no overlay by default */ 
+transition: background-color 0.3s ease; 
+z-index: 1; 
+} 
+          
+.skole-box:hover::before {
+background-color: rgba(60, 87, 53, 0.477); /* overlay on hover */ 
+color: var(--primaer-farve);
+} 
+           
+.skole-box:hover h3 { 
+color: var(--primaer-farve); /* or any color you want */ 
+} 
+
+.skole-box h3 { 
+color: transparent;
+position: relative;
+z-index: 2; /* above overlay */ 
+margin: 0;
+} /* Your existing background images */ 
+
+
+.skole-box:hover h4 { 
+color: var(--primaer-farve); /* or any color you want */ 
+} 
+
+.skole-box h4 { 
+color: transparent;
+position: relative;
+z-index: 2; /* above overlay */ 
+margin: 0;
+} /* Your existing background images */ 
+    
+
+#forste { 
+background-image: url(../img/første.jpg);
+background-size: cover;
+background-position: center;
+} 
+               
+#andet { 
+background-image: url(../img/andet.png);
+background-size: cover;
+background-position: center; 
+} 
+                
+#tredje { 
+background-image: url(../img/tredje.jpg);
+background-size: cover;
+background-position: center; 
+}
+
+
+.intruduktion{
+  margin: var(--gap-2);
+}
+
+.tilbage{
+  text-decoration: none;
+    color: var(--primaer-farve);
+    background-color: var(--traetier-farve);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    font-size: 3em;
+    position: fixed;
+    top: var(--gap-2);
+    left: var(--gap-2);
+    text-align: center;
+}
+
+#tallo{
+  background-image: url(../img/tallo.png);}
+
+#sind{
+  background-image: url(../img/sind-ungdom.jpg);}
+
+#infografik{
+  background-image: url(../img/infografik.jpg);}
+
+#bootstrap{
+  background-image: url(../img/bootstrap.jpg);}
+
+#design{
+  background-image: url(../img/design-thinking.jpg);}
+
+#wordpress{
+  background-image: url(../img/wordpress-seo.jpg);}
+
+  
